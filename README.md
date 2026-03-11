@@ -1,130 +1,111 @@
-# Customer-Churn-Prediction
-📉 Customer Churn Prediction with Machine Learning
+# 📉 Customer Churn Prediction using Machine Learning
 
-This project focuses on forecasting customer churn using a telecommunications dataset. The primary aim is to identify customers who are likely to discontinue their services and uncover the business factors contributing to churn. By doing so, organizations can take preventive actions and improve customer retention strategies.
+This project is focused on predicting customer churn using a dataset from a telecommunications company. The goal is to identify customers who are likely to stop using the service, and understand the business factors behind churn, enabling proactive retention strategies.
 
-🧠 Project Objective
 
-The purpose of this project is to:
+## 🧠 Objective
 
-Examine customer data to identify patterns and key drivers of churn
+The main objective of this project is to:
 
-Develop machine learning models capable of predicting churn behavior
+- Analyze customer data to discover patterns and churn drivers
+- Build machine learning models to **predict churn**
+- Compare models to select the best performing one
+- Translate insights into **actionable business recommendations**
 
-Evaluate multiple models to determine the most effective one
 
-Convert analytical findings into practical business insights and strategies
+## 📊 Dataset
 
-📊 Dataset Overview
+- **Source**: Telco Customer Churn Dataset (from IBM Sample Datasets or Kaggle)
+- **Rows**: 7043 customers
+- **Columns**: 21 (features include customer demographics, services, payment info, etc.)
+- **Target**: `Churn` (Yes/No)
 
-Source: Telco Customer Churn Dataset (IBM Sample Dataset / Kaggle)
 
-Total Records: 7,043 customers
 
-Features: 21 columns including demographics, subscribed services, and payment details
+## 🔍 Exploratory Data Analysis (EDA)
 
-Target Variable: Churn (Yes / No)
+We explored the data using Seaborn and Matplotlib. Key visualizations include:
 
-🔍 Exploratory Data Analysis (EDA)
+- ✅ Pie chart showing **overall churn rate**
+- ✅ Histograms for **tenure** and **monthly charges** by churn
+- ✅ Countplots for **contract type** and **payment method** vs churn
+- ✅ Correlation heatmaps for numeric features
 
-Data exploration was conducted using Seaborn and Matplotlib to understand patterns within the dataset.
+These helped us form business insights such as:
+- Customers with short tenure churn more
+- Month-to-month contracts are associated with higher churn
+- Electronic check users churn more than credit card users
+- Higher charges lead to higher churn risk
 
-Key visualizations included:
 
-📌 Pie chart illustrating the overall churn distribution
 
-📌 Histograms comparing tenure and monthly charges between churned and retained customers
+## 🤖 Machine Learning Models
 
-📌 Count plots analyzing contract type and payment methods against churn behavior
+We trained and evaluated the following models:
 
-📌 Correlation heatmaps highlighting relationships between numerical variables
+| Model                 | Accuracy |
+|----------------------|----------|
+| Logistic Regression  | ~80%     |
+| Random Forest        | ~82% ✅ Best |
+| Support Vector Machine (SVM) | ~78% |
+| K-Nearest Neighbors  | ~75%     |
+| Naive Bayes          | ~72%     |
 
-These visual analyses revealed several insights:
+- We used **Label Encoding**, **Feature Scaling**, and **Train-Test Split**.
+- Models were evaluated using **Accuracy**, **Confusion Matrix**, and **Classification Report**.
+- Best-performing model: **Random Forest Classifier**
 
-Customers with shorter tenure are more likely to churn
 
-Month-to-month contracts are strongly associated with higher churn rates
 
-Customers paying via electronic check show higher churn tendencies
+## 📈 Visualizations
 
-Higher monthly charges increase churn probability
+All visualizations used for EDA and model comparison are saved in the `visuals/` folder. These include:
 
-🤖 Machine Learning Models
+- Churn Distribution Pie Chart
+- Tenure Distribution by Churn
+- Monthly Charges KDE by Churn
+- Contract Type vs Churn
+- Model Accuracy Bar Plot
 
-Several machine learning algorithms were trained and evaluated to predict customer churn.
+---
 
-Model	Accuracy
-Logistic Regression	~80%
-Random Forest	~82% ✅ Best
-Support Vector Machine (SVM)	~78%
-K-Nearest Neighbors	~75%
-Naive Bayes	~72%
+## 🧠 Business Insights
 
-Preprocessing steps included:
+This project doesn't just build a predictive model — it **translates data into business value**:
 
-Label Encoding for categorical variables
+- **~27% of customers churn** — a serious revenue leakage
+- Customers with **month-to-month contracts churn at 42%**, vs just 11% on long-term contracts
+- **Short-tenure users (<12 months)** are most likely to leave — onboarding needs improvement
+- **Electronic check** as a payment method is a major churn signal
+- Our model can help businesses **predict churners in advance** and run targeted retention campaigns
 
-Feature Scaling
 
-Train–Test Split for model evaluation
 
-Performance was assessed using accuracy score, confusion matrix, and classification reports.
-Among all models, the Random Forest Classifier delivered the best performance.
+## 💼 Business Recommendations
 
-📈 Visual Outputs
+| Strategy | Explanation |
+|----------|-------------|
+| 🎯 Target short-tenure users | Offer onboarding perks or welcome incentives |
+| 📄 Encourage long-term contracts | Provide discounts to switch from month-to-month |
+| 💳 Avoid churn-prone payment methods | Encourage auto-pay or credit card users |
+| 📢 Use model predictions | Export churn scores weekly to customer support & marketing |
 
-All visualizations created during EDA and model comparison are stored in the visuals/ directory, including:
 
-Churn Distribution Pie Chart
+## 🛠️ Technologies Used
 
-Tenure Distribution by Churn
+- **Python**
+- **Pandas, NumPy** (data cleaning & processing)
+- **Seaborn, Matplotlib** (visualizations)
+- **Scikit-learn** (modeling)
+- **Jupyter Notebook**
 
-Monthly Charges Density Plot by Churn
 
-Contract Type vs Churn Visualization
 
-Model Accuracy Comparison Bar Chart
+## 📌 Future Improvements
 
-🧠 Key Business Insights
+- Use **SMOTE** for class imbalance
+- Deploy the model with a **Streamlit app** for business users
+- Incorporate **customer sentiment or feedback** as additional features
+- Track model performance over time with real churn data
 
-This project goes beyond predictive modeling by extracting valuable business insights:
-
-Approximately 27% of customers leave the service, indicating a major revenue loss
-
-Customers with month-to-month contracts show a 42% churn rate, compared to only 11% for long-term contracts
-
-Users with less than 12 months of tenure are the most vulnerable segment
-
-Electronic check payments are strongly correlated with churn behavior
-
-These insights allow companies to identify high-risk customers early and implement targeted retention programs.
-
-💼 Business Recommendations
-Strategy	Description
-🎯 Focus on new customers	Provide onboarding support, discounts, or loyalty incentives
-📄 Promote long-term contracts	Encourage customers to switch from monthly plans through discounts
-💳 Promote stable payment methods	Encourage credit card or auto-pay instead of electronic checks
-📢 Use churn prediction model	Share churn risk scores with marketing and support teams for proactive engagement
-🛠️ Tools & Technologies
-
-Python
-
-Pandas & NumPy – Data preprocessing and manipulation
-
-Seaborn & Matplotlib – Data visualization
-
-Scikit-learn – Machine learning modeling
-
-Jupyter Notebook – Development environment
-
-📌 Future Enhancements
-
-Possible improvements for this project include:
-
-Applying SMOTE to address class imbalance
-
-Deploying the model using a Streamlit web application for non-technical users
-
-Integrating customer feedback or sentiment data for richer features
-
-Monitoring model performance with live churn data over time
+---
